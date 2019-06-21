@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "sneakthroughberries",
+  "version": "${version}",
+
+  "name": "Sneak Through Berries",
+  "description": "Lets you sneak through Sweet Berries without taking damage",
+  "authors": [
+    "Trikzon"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "GPLv3",
+  "icon": "assets/sneakthroughberries/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+    ]
+  },
+  "mixins": [
+    "sneakthroughberries.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.4.0"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
