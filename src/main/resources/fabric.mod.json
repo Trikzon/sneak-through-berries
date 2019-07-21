@@ -19,6 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
+      "trikzon.sneakthroughberries.Config"
     ]
   },
   "mixins": [
