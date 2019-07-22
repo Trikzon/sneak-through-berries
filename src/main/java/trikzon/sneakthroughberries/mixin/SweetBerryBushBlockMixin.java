@@ -33,18 +33,27 @@ public abstract class SweetBerryBushBlockMixin extends PlantBlock implements Fer
         if (isPlayer && (Config.CONFIG.wearingBoots || Config.CONFIG.wearingLeggings || Config.CONFIG.wearingAllArmor)) {
             PlayerEntity player = (PlayerEntity)entity_1;
 
-            boots = player.getEquippedStack(EquipmentSlot.FEET).isEmpty();
-            leggings = player.getEquippedStack(EquipmentSlot.LEGS).isEmpty();
-            boolean chest = player.getEquippedStack(EquipmentSlot.CHEST).isEmpty();
-            boolean helmet = player.getEquippedStack(EquipmentSlot.HEAD).isEmpty();
+            boots = !player.getEquippedStack(EquipmentSlot.FEET).isEmpty();
+            leggings = !player.getEquippedStack(EquipmentSlot.LEGS).isEmpty();
+            boolean chest = !player.getEquippedStack(EquipmentSlot.CHEST).isEmpty();
+            boolean helmet = !player.getEquippedStack(EquipmentSlot.HEAD).isEmpty();
 
             if (boots && leggings && chest && helmet) allArmor = true;
         }
-        if (Config.CONFIG.wearingBoots && boots) return;
-        if (Config.CONFIG.wearingLeggings && leggings) return;
-        if (Config.CONFIG.wearingAllArmor && allArmor) return;
+        if (Config.CONFIG.wearingBoots && !boots && !Config.CONFIG.wearingArmorAllowsWalking) return;
+        if (Config.CONFIG.wearingLeggings && !leggings && !Config.CONFIG.wearingArmorAllowsWalking) return;
+        if (Config.CONFIG.wearingAllArmor && !allArmor && !Config.CONFIG.wearingArmorAllowsWalking) return;
 
-        if (Config.CONFIG.sneaking && !entity_1.isSneaking()) return;
+        if (Config.CONFIG.sneaking && !entity_1.isSneaking()) {
+
+            if (Config.CONFIG.wearingArmorAllowsWalking) {
+
+                if (Config.CONFIG.wearingBoots && !boots) return;
+                if (Config.CONFIG.wearingLeggings && !leggings) return;
+                if (Config.CONFIG.wearingAllArmor && !allArmor) return;
+
+            } else return;
+        }
 
         ci.cancel();
     }
