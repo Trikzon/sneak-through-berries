@@ -38,7 +38,7 @@ public class Config implements ModInitializer {
 
     private ConfigObject save() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        ConfigObject defaultConfig = new ConfigObject(false, false, false, true, false, false);
+        ConfigObject defaultConfig = new ConfigObject(true, true, false, true, true, false, false);
         String config = gson.toJson(defaultConfig);
 
         try (FileWriter file = new FileWriter(configFile.toString())){
