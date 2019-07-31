@@ -13,7 +13,7 @@
     "sources": "https://github.com/Trikzon/Sneak-Through-Berries"
   },
 
-  "license": "GPLv3",
+  "license": "MIT",
   "icon": "assets/sneakthroughberries/icon.png",
 
   "environment": "*",
