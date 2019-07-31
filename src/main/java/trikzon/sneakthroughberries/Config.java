@@ -3,7 +3,7 @@ package trikzon.sneakthroughberries;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.client.MinecraftClient;
+import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -15,7 +15,7 @@ import java.nio.file.Path;
 public class Config implements ModInitializer {
 
     public static ConfigObject CONFIG;
-    private final Path configFile = MinecraftClient.getInstance().runDirectory.toPath().resolve("config/sneakthroughberries.json");
+    private final Path configFile = FabricLoader.getInstance().getConfigDirectory().toPath().resolve("sneakthroughberries.json");
 
     @Override
     public void onInitialize() {
@@ -46,7 +46,7 @@ public class Config implements ModInitializer {
             file.flush();
 
         } catch (IOException e) {
-            File dir = new File(MinecraftClient.getInstance().runDirectory.toPath().resolve("config").toString());
+            File dir = new File(FabricLoader.getInstance().getConfigDirectory().toPath().toString());
             dir.mkdir();
             save();
         }
