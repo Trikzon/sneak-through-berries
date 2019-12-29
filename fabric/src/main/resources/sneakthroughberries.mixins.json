@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "trikzon.sneakthroughberries.mixin",
+  "package": "io.github.trikzon.sneakthroughberries.fabric.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "SweetBerryBushBlockMixin"
