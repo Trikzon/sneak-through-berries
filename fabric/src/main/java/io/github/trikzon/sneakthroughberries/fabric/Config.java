@@ -40,8 +40,6 @@ public class Config implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        String config = "";
-
         Gson gson = new Gson();
         try {
             CONFIG = gson.fromJson(new FileReader(MOD_CONFIG_FILE), ConfigObject.class);

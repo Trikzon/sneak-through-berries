@@ -22,7 +22,7 @@ plugins {
 }
 apply plugin: 'net.cazzar.gradle.modsio'
 
-version = "1.0.0"
+version = "1.0.1"
 group = "io.github.trikzon"
 archivesBaseName = "Sneak-Through-Berries-1.15.1"
 
