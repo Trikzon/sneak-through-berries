@@ -21,10 +21,3 @@ Lets you sneak through Sweet Berry Bushes without taking damage
     versionRange="[30,)"
     ordering="NONE"
     side="BOTH"
-
-[[dependencies.sneakthroughberries]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.15.1]"
-    ordering="NONE"
-    side="BOTH"
