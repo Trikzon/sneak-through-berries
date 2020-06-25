@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "sneakthroughberries",
+  "id": "sneak-through-berries",
   "version": "${version}",
 
   "name": "Sneak Through Berries",
@@ -13,23 +13,16 @@
     "sources": "https://github.com/Trikzon/Sneak-Through-Berries"
   },
 
-  "license": "LGLP-3.0-or-later",
-  "icon": "assets/sneakthroughberries/icon.png",
+  "license": "LGPL-3.0-or-later",
+  "icon": "assets/sneak-through-berries/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.trikzon.sneakthroughberries.fabric.Config"
+      "com.trikzon.sneak_through_berries.SneakThroughBerries"
     ]
   },
   "mixins": [
-    "sneakthroughberries.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=0.7.2",
-    "fabric": "*"
-  },
-  "suggests": {
-    "flamingo": "*"
-  }
+    "sneak-through-berries.mixin.json"
+  ]
 }
