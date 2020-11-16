@@ -12,6 +12,7 @@ import java.io.IOException;
 public class Config {
     public static class ConfigBean {
         public boolean sneakToStopDamage = true;
+        public boolean requiredArmorLosesDurabilityWhenWalking = true;
         public RequiredToWalkConfigBean requiredToWalk = new RequiredToWalkConfigBean();
     }
 

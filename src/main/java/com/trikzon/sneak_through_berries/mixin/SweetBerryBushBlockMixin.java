@@ -15,6 +15,8 @@ import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -39,11 +41,26 @@ public abstract class SweetBerryBushBlockMixin extends PlantBlock {
             ci.cancel();
         }
 
-        if (CONFIG.requiredToWalk.boots && player.getEquippedStack(EquipmentSlot.FEET).isEmpty()) return;
-        if (CONFIG.requiredToWalk.leggings && player.getEquippedStack(EquipmentSlot.LEGS).isEmpty()) return;
-        if (CONFIG.requiredToWalk.chestPlate && player.getEquippedStack(EquipmentSlot.CHEST).isEmpty()) return;
-        if (CONFIG.requiredToWalk.helmet && player.getEquippedStack(EquipmentSlot.HEAD).isEmpty()) return;
+        ItemStack feet = player.getEquippedStack(EquipmentSlot.FEET);
+        ItemStack legs = player.getEquippedStack(EquipmentSlot.LEGS);
+        ItemStack chest = player.getEquippedStack(EquipmentSlot.CHEST);
+        ItemStack head = player.getEquippedStack(EquipmentSlot.HEAD);
+
+        if (CONFIG.requiredToWalk.boots && feet.isEmpty()) return;
+        if (CONFIG.requiredToWalk.leggings && legs.isEmpty()) return;
+        if (CONFIG.requiredToWalk.chestPlate && chest.isEmpty()) return;
+        if (CONFIG.requiredToWalk.helmet && head.isEmpty()) return;
 
         ci.cancel();
+
+        if (world.isClient) return;
+        if (!CONFIG.requiredArmorLosesDurabilityWhenWalking) return;
+        if (world.random.nextInt(20) != 0) return;
+
+        ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
+        if (CONFIG.requiredToWalk.boots) feet.damage(1, world.random, serverPlayer);
+        if (CONFIG.requiredToWalk.leggings) legs.damage(1, world.random, serverPlayer);
+        if (CONFIG.requiredToWalk.chestPlate) chest.damage(1, world.random, serverPlayer);
+        if (CONFIG.requiredToWalk.helmet) head.damage(1, world.random, serverPlayer);
     }
 }
