@@ -41,7 +41,6 @@ public class SneakThroughBerries {
 
         if (CONFIG.sneakToStopDamage && player.isSneaking()) {
             event.setCanceled(true);
-            LOGGER.info("Is Sneaking");
             return;
         }
 
@@ -55,7 +54,6 @@ public class SneakThroughBerries {
         if (CONFIG.requiredToWalk.chestPlate && chest.isEmpty()) return;
         if (CONFIG.requiredToWalk.helmet && head.isEmpty()) return;
 
-        System.out.println("Is wearing the armor");
         event.setCanceled(true);
 
         World world = event.getEntity().world;
