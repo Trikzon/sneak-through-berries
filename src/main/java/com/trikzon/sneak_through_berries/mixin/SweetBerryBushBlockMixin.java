@@ -39,6 +39,7 @@ public abstract class SweetBerryBushBlockMixin extends PlantBlock {
 
         if (CONFIG.sneakToStopDamage && player.isSneaking()) {
             ci.cancel();
+            return;
         }
 
         ItemStack feet = player.getEquippedStack(EquipmentSlot.FEET);
