@@ -4,9 +4,9 @@
   "package": "com.trikzon.sneak_through_berries.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "SweetBerryBushBlockMixin"
   ],
   "client": [
-    "SweetBerryBushBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
