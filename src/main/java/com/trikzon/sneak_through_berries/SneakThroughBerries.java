@@ -34,6 +34,8 @@ public class SneakThroughBerries {
     }
 
     private void onLivingAttack(LivingAttackEvent event) {
+        if (!event.getSource().damageType.equals("sweetBerryBush")) return;
+
         if (!(event.getEntity() instanceof PlayerEntity)) return;
         PlayerEntity player = (PlayerEntity) event.getEntity();
 
