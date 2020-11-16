@@ -22,57 +22,46 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.ArrayList;
+
 import static com.trikzon.sneak_through_berries.SneakThroughBerries.CONFIG;
 
 @Mixin(SweetBerryBushBlock.class)
-public abstract class SweetBerryBushBlockMixin extends PlantBlock
-{
-    public SweetBerryBushBlockMixin(Settings settings)
-    {
+public abstract class SweetBerryBushBlockMixin extends PlantBlock {
+    public SweetBerryBushBlockMixin(Settings settings) {
         super(settings);
     }
 
     @Inject(method = "onEntityCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"), cancellable = true)
-    private void sneakThroughBerries_onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci)
-    {
-        boolean isPlayer = entity instanceof PlayerEntity;
-        if (!CONFIG.worksForPlayer && isPlayer) return;
-        if (!CONFIG.worksForNonPlayer && !isPlayer) return;
+    private void sneakThroughBerries_onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
+        if (!(entity instanceof PlayerEntity)) return;
+        PlayerEntity player = (PlayerEntity) entity;
 
-        if (isPlayer)
-        {
-            boolean canWalk = CONFIG.requireNothingToWalk;
-            PlayerEntity player = (PlayerEntity) entity;
-
-            if (!canWalk)
-            {
-                // IF SOMEONE!!! SOMEONE!!! can figure out something better... please pr it. this is madness!
-                int armorCounter = 0;
-                armorCounter += !player.getEquippedStack(EquipmentSlot.FEET).isEmpty() ? 1 : 0;
-                armorCounter += !player.getEquippedStack(EquipmentSlot.LEGS).isEmpty() ? 1 : 0;
-                armorCounter += !player.getEquippedStack(EquipmentSlot.CHEST).isEmpty()? 1 : 0;
-                armorCounter += !player.getEquippedStack(EquipmentSlot.HEAD).isEmpty() ? 1 : 0;
-
-                int requiredArmor = 0;
-                requiredArmor += CONFIG.requireBootsToWalk ? 1 : 0;
-                requiredArmor += CONFIG.requireLeggingsToWalk ? 1 : 0;
-                requiredArmor += CONFIG.requireChestToWalk ? 1 : 0;
-                requiredArmor += CONFIG.requireHelmetToWalk ? 1 : 0;
-
-                if (armorCounter == requiredArmor)
-                {
-                    canWalk = true;
-                }
-            }
-            if (canWalk)
-            {
-                ci.cancel();
-                return;
-            }
-        }
-        if (entity.isSneaking())
-        {
+        if (CONFIG.sneakToStopDamage && player.isSneaking()) {
             ci.cancel();
         }
+
+        boolean[] config = {
+                CONFIG.requiredToWalk.boots,
+                CONFIG.requiredToWalk.leggings,
+                CONFIG.requiredToWalk.chestPlate,
+                CONFIG.requiredToWalk.helmet,
+        };
+        boolean[] isWorn = {
+                !player.getEquippedStack(EquipmentSlot.FEET).isEmpty(),
+                !player.getEquippedStack(EquipmentSlot.LEGS).isEmpty(),
+                !player.getEquippedStack(EquipmentSlot.CHEST).isEmpty(),
+                !player.getEquippedStack(EquipmentSlot.HEAD).isEmpty(),
+        };
+        assert config.length == isWorn.length;
+
+        boolean canWalk = true;
+        for (int i = 0; i < config.length; i++) {
+            if (config[i] && !isWorn[i]) {
+                canWalk = false;
+                break;
+            }
+        }
+        if (canWalk) ci.cancel();
     }
 }
