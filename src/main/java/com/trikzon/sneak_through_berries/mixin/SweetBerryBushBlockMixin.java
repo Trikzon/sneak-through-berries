@@ -48,16 +48,16 @@ public abstract class SweetBerryBushBlockMixin extends PlantBlock {
                 CONFIG.requiredToWalk.helmet,
         };
         boolean[] isWorn = {
-                !player.getEquippedStack(EquipmentSlot.FEET).isEmpty(),
-                !player.getEquippedStack(EquipmentSlot.LEGS).isEmpty(),
-                !player.getEquippedStack(EquipmentSlot.CHEST).isEmpty(),
-                !player.getEquippedStack(EquipmentSlot.HEAD).isEmpty(),
+                player.getEquippedStack(EquipmentSlot.FEET).isEmpty(),
+                player.getEquippedStack(EquipmentSlot.LEGS).isEmpty(),
+                player.getEquippedStack(EquipmentSlot.CHEST).isEmpty(),
+                player.getEquippedStack(EquipmentSlot.HEAD).isEmpty(),
         };
         assert config.length == isWorn.length;
 
         boolean canWalk = true;
         for (int i = 0; i < config.length; i++) {
-            if (config[i] && !isWorn[i]) {
+            if (config[i] && isWorn[i]) {
                 canWalk = false;
                 break;
             }
