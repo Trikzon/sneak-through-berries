@@ -21,6 +21,6 @@ issueTrackerURL = "https://github.com/Trikzon/sneak-through-berries/issues"
 [[dependencies.sneak-through-berries]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16,)"
+    versionRange="[1.15,)"
     ordering="NONE"
     side="BOTH"
