@@ -22,8 +22,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.ArrayList;
-
 import static com.trikzon.sneak_through_berries.SneakThroughBerries.CONFIG;
 
 @Mixin(SweetBerryBushBlock.class)
@@ -41,27 +39,11 @@ public abstract class SweetBerryBushBlockMixin extends PlantBlock {
             ci.cancel();
         }
 
-        boolean[] config = {
-                CONFIG.requiredToWalk.boots,
-                CONFIG.requiredToWalk.leggings,
-                CONFIG.requiredToWalk.chestPlate,
-                CONFIG.requiredToWalk.helmet,
-        };
-        boolean[] isWorn = {
-                !player.getEquippedStack(EquipmentSlot.FEET).isEmpty(),
-                !player.getEquippedStack(EquipmentSlot.LEGS).isEmpty(),
-                !player.getEquippedStack(EquipmentSlot.CHEST).isEmpty(),
-                !player.getEquippedStack(EquipmentSlot.HEAD).isEmpty(),
-        };
-        assert config.length == isWorn.length;
+        if (CONFIG.requiredToWalk.boots && player.getEquippedStack(EquipmentSlot.FEET).isEmpty()) return;
+        if (CONFIG.requiredToWalk.leggings && player.getEquippedStack(EquipmentSlot.LEGS).isEmpty()) return;
+        if (CONFIG.requiredToWalk.chestPlate && player.getEquippedStack(EquipmentSlot.CHEST).isEmpty()) return;
+        if (CONFIG.requiredToWalk.helmet && player.getEquippedStack(EquipmentSlot.HEAD).isEmpty()) return;
 
-        boolean canWalk = true;
-        for (int i = 0; i < config.length; i++) {
-            if (config[i] && !isWorn[i]) {
-                canWalk = false;
-                break;
-            }
-        }
-        if (canWalk) ci.cancel();
+        ci.cancel();
     }
 }
