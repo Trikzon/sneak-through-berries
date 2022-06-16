@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[40,)"
+loaderVersion = "[37,)"
 issueTrackerURL = "https://github.com/trikzon/sneak-through-berries/issues"
 license = "MIT; Assets licensed as All Rights Reserved"
 
@@ -16,13 +16,13 @@ Lets you sneak through Sweet Berry Bushes without taking damage
 [[dependencies.stb]]
 modId = "forge"
 mandatory = true
-versionRange = "[40,)"
+versionRange = "[37,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.stb]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.18,)"
+versionRange = "[1.17,)"
 ordering = "NONE"
 side = "BOTH"
