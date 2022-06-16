@@ -1,9 +1,7 @@
 # Sneak Through Berries
-[![](http://cf.way2muchnoise.eu/full_324945.svg)](https://www.curseforge.com/minecraft/mc-mods/sneak-through-berries)
+[![](http://cf.way2muchnoise.eu/full_324945_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/sneak-through-berries)
+[![](https://modrinth-utils.vercel.app/api/badge/downloads/?id=sneak-through-berries&logo=true)](https://modrinth.com/mod/sneak-through-berries)
 [![](http://cf.way2muchnoise.eu/versions/324945.svg)](https://www.curseforge.com/minecraft/mc-mods/sneak-through-berries)
-
-![](https://modrinth-utils.vercel.app/api/badge/downloads/?id=sneak-through-berries&logo=true)
-![](https://modrinth-utils.vercel.app/api/badge/versions/?id=sneak-through-berries&logo=true)
 
 [Youtube Video Demonstration](https://youtu.be/OZJFD3SrNdM)
 
