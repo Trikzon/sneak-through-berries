@@ -27,10 +27,10 @@ public abstract class SweetBerryBushBlockMixin extends BushBlock implements Bone
             Entity entity,
             CallbackInfo ci
     ) {
-        if (entity instanceof Player player)  {
-            if (player.isShiftKeyDown()) {
-                ci.cancel();
-            }
+        if (!(entity instanceof Player)) return;
+
+        if (entity.isShiftKeyDown()) {
+            ci.cancel();
         }
     }
 }
