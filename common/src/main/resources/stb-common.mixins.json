@@ -1,12 +1,12 @@
 {
   "required": true,
+  "package": "com.trikzon.stb.mixin",
+  "compatibilityLevel": "JAVA_16",
   "minVersion": "0.8",
-  "package": "com.trikzon.sneak_through_berries.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "client": [
+  ],
   "mixins": [
     "SweetBerryBushBlockMixin"
-  ],
-  "client": [
   ],
   "injectors": {
     "defaultRequire": 1

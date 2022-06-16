@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[41,)"
+issueTrackerURL = "https://github.com/trikzon/sneak-through-berries/issues"
+license = "MIT; Assets licensed as All Rights Reserved"
+
+[[mods]]
+modId = "stb"
+version = "${version}"
+displayName = "Sneak Through Berries"
+authors = "Trikzon"
+description = '''
+Lets you sneak through Sweet Berry Bushes without taking damage
+'''
+#logoFile = ""
+
+[[dependencies.stb]]
+modId = "forge"
+mandatory = true
+versionRange = "[41,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.stb]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19,)"
+ordering = "NONE"
+side = "BOTH"
