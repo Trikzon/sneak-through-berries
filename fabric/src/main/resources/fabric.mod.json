@@ -1,30 +1,27 @@
 {
-  "schemaVersion": 1,
-  "id": "stb",
-  "version": "${version}",
-  "name": "Sneak Through Berries",
-  "description": "Lets you sneak through Sweet Berry Bushes without taking damage",
-  "authors": [
-    "Trikzon"
-  ],
-  "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/sneak-through-berries",
-    "issues": "https://github.com/trikzon/sneak-through-berries/issues",
-    "sources": "https://github.com/trikzon/sneak-through-berries"
-  },
-  "license": "MIT; Assets licensed as All Rights Reserved",
-  "icon": "assets/stb/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "client": [
-    ]
-  },
-  "mixins": [
-    "stb.mixins.json",
-    "stb-common.mixins.json"
-  ],
-  "depends": {
-    "fabric": "*",
-    "minecraft": ">=1.19"
-  }
+    "schemaVersion": 1,
+    "id": "sneak_through_berries",
+    "version": "${version}",
+    "name": "Sneak Through Berries",
+    "description": "Sneak (shift) through Sweet Berry Bushes without taking damage.",
+    "authors": [
+        "Trikzon"
+    ],
+    "contact": {
+        "homepage": "https://github.com/Trikzon/sneak-through-berries",
+        "sources": "https://github.com/Trikzon/sneak-through-berries",
+        "issues": "https://github.com/Trikzon/sneak-through-berries/issues"
+    },
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/sneak_through_berries/icon.png",
+    "environment": "*",
+    "entrypoints": { },
+    "mixins": [
+        "sneak_through_berries.mixins.json",
+        "sneak_through_berries.fabric.mixins.json"
+    ],
+    "depends": {
+        "minecraft": "1.19.3",
+        "java": ">=17"
+    }
 }

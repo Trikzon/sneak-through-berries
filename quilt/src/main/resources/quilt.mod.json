@@ -1,46 +1,39 @@
 {
   "schema_version": 1,
-  "mixin": [
-    "stb.mixins.json",
-    "stb-common.mixins.json"
-  ],
   "quilt_loader": {
-    "group": "${group}",
-    "id": "stb",
+    "group": "com.diontryban.mods",
+    "id": "sneak_through_berries",
     "version": "${version}",
     "metadata": {
       "name": "Sneak Through Berries",
-      "description": "Lets you sneak through Sweet Berry Bushes without taking damage",
+      "description": "Sneak (shift) through Sweet Berry Bushes without taking damage.",
       "contributors": {
         "Trikzon": "Owner"
       },
       "contact": {
-        "homepage": "https://modrinth.com/mod/sneak-through-berries",
-        "issues": "https://github.com/trikzon/sneak-through-berries/issues",
-        "sources": "https://github.com/trikzon/sneak-through-berries"
+        "homepage": "https://github.com/Trikzon/sneak-through-berries",
+        "issues": "https://github.com/Trikzon/sneak-through-berries/issues",
+        "sources": "https://github.com/Trikzon/sneak-through-berries"
       },
-      "license": "MIT",
-      "icon": "assets/stb/icon.png"
+      "icon": "assets/sneak_through_berries/icon.png",
+      "license": "LGPL-3.0-or-later"
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
-    "environment": "*",
     "entrypoints": {
-      "client_init": [
-      ]
     },
     "depends": [
       {
         "id": "quilt_loader",
-        "version": "*"
-      },
-      {
-        "id": "quilt_base",
-        "version": "*"
+        "versions": ">=0.17.6-"
       },
       {
         "id": "minecraft",
-        "version": ">=1.19"
+        "versions": ">=1.19.3"
       }
     ]
-  }
+  },
+  "mixin": [
+    "sneak_through_berries.mixins.json",
+    "sneak_through_berries.quilt.mixins.json"
+  ]
 }

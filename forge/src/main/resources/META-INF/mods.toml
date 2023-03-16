@@ -1,28 +1,33 @@
-modLoader = "javafml"
-loaderVersion = "[41,)"
-issueTrackerURL = "https://github.com/trikzon/sneak-through-berries/issues"
-license = "MIT; Assets licensed as All Rights Reserved"
+modLoader="lowcodefml" #mandatory
+loaderVersion="[44,)" #mandatory
+license="LGPL-3.0-or-later"
+issueTrackerURL="https://github.com/trikzon/sneak-through-berries/issues" #optional
 
-[[mods]]
-modId = "stb"
-version = "${version}"
-displayName = "Sneak Through Berries"
-authors = "Trikzon"
-description = '''
-Lets you sneak through Sweet Berry Bushes without taking damage
+[[mods]] #mandatory
+modId="sneak_through_berries" #mandatory
+version="${file.jarVersion}" #mandatory
+displayName="Sneak Through Berries" #mandatory
+#updateJSONURL="" #optional
+displayURL="https://github.com/trikzon/sneak-through-berries" #optional
+logoFile="assets/sneak_through_berries/icon.png" #optional
+#credits="" #optional
+authors="Trikzon" #optional
+description='''
+Sneak (shift) through Sweet Berry Bushes without taking damage.
 '''
-#logoFile = ""
 
-[[dependencies.stb]]
-modId = "forge"
-mandatory = true
-versionRange = "[41,)"
-ordering = "NONE"
-side = "BOTH"
+[[dependencies.sneak_through_berries]] #optional
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[44,)" #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="BOTH"
 
-[[dependencies.stb]]
-modId = "minecraft"
-mandatory = true
-versionRange = "[1.19,)"
-ordering = "NONE"
-side = "BOTH"
+[[dependencies.sneak_through_berries]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.3,1.20)"
+    ordering="NONE"
+    side="BOTH"
