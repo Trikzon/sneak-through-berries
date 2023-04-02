@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.diontryban.sneak_through_berries.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [
+        "SweetBerryBushBlockMixin"
+    ],
+    "client": [
+    ],
+    "injectors": {
+      "defaultRequire": 1
+    }
+  }
+  
