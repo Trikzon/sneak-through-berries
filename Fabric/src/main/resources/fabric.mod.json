@@ -21,7 +21,7 @@
         "sneak_through_berries.fabric.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.19.3",
+        "minecraft": "^1.19.3",
         "java": ">=17"
     }
 }
