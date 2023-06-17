@@ -27,5 +27,9 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'Sneak Through Berries'
-include('Common', 'Fabric', 'Forge', 'Quilt')
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.5.0'
+}
+
+rootProject.name = 'sneak-through-berries'
+include('common', 'fabric', 'forge', 'quilt')
