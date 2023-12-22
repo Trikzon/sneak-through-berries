@@ -1,4 +1,7 @@
 # Changelog
+## v20.2.1
+- Correctly set the environment in the `fabric.mod.json` to both instead of just client.
+
 ## v20.2.0
 - Update to MC 1.20.2.
 - Changed version format to follow NeoForge's <minecraft_minor>.<minecraft_patch>.<number>(-beta).
