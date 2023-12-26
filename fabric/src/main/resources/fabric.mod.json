@@ -16,15 +16,13 @@
     "icon": "assets/${mod_id}/icon.png",
     "environment": "*",
     "entrypoints": {
-        "client": [
-        ]
     },
     "mixins": [
         "${mod_id}.mixins.json",
         "${mod_id}.fabric.mixins.json"
     ],
     "depends": {
-        "minecraft": "1.20.2"
+        "minecraft": "^1.20.3"
     }
 }
   
