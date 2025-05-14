@@ -1,4 +1,8 @@
 # Changelog
+## v21.0.0
+- Update to MC 1.21.
+- Use `isSteppingCarefully()` instead of `isShiftKeyDown()`. [#17](https://github.com/Trikzon/sneak-through-berries/pull/17)
+
 ## v20.6.0
 - Update to MC 1.20.6.
 

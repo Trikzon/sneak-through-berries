@@ -1,6 +1,6 @@
 plugins {
     id 'multiloader-loader'
-    id 'net.neoforged.moddev' version '1.0.14'
+    id 'net.neoforged.moddev'
 }
 
 neoForge {
@@ -10,51 +10,46 @@ neoForge {
 
     def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) {
-        accessTransformers.add(at.absolutePath);
+        accessTransformers.add(at.absolutePath)
+    }
+
+    parchment {
+        minecraftVersion = project.parchment_minecraft_version
+        mappingsVersion = project.parchment_version
     }
 
     runs {
+        configureEach {
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            // Unify the run config names with fabric.
+            ideName = "NeoForge ${it.name.capitalize()} (${project.path})"
+        }
+
         client {
             client()
-
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        server {
-            server()
-
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-            programArgument '--nogui'
-        }
-
-        gameTestServer {
-            type = 'gameTestServer'
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
         data {
             data()
-
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
         }
 
-        configureEach {
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
-
-            logLevel = org.slf4j.event.Level.DEBUG
+        server {
+            server()
         }
     }
 
     mods {
-        "${mod_id}" {
+        "${project.mod_id}" {
             sourceSet(sourceSets.main)
         }
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
-
 dependencies {
+    if (project.ash_version != "") {
+        implementation "com.diontryban.ash_api:ash_api-neoforge:${project.ash_version}"
+    }
+    
     // Ars Nouveau - adds a lot of transitives, only needed one is JEI so it's added below
     compileOnly("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}") {
         transitive = false
@@ -69,3 +64,5 @@ dependencies {
     runtimeOnly "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
     runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
 }
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
