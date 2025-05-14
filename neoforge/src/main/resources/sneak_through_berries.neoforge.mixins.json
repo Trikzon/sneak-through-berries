@@ -1,9 +1,12 @@
 {
     "required": true,
     "minVersion": "0.8",
-    "package": "com.diontryban.sneak_through_berries.mixin",
+    "package": "com.diontryban.sneak_through_berries.neoforge.mixin",
     "compatibilityLevel": "JAVA_21",
-    "mixins": [ ],
+    "plugin": "com.diontryban.sneak_through_berries.neoforge.NeoForgeMixinPlugin",
+    "mixins": [
+        "SourceBerryBushMixin"
+    ],
     "client": [ ],
     "server": [ ],
     "injectors": {
