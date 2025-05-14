@@ -31,7 +31,7 @@ jobs:
         with:
           curseforge-id: 324945
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          modrinth-id: wq3wqd0E
+          modrinth-id: xq3wqd0E
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           modrinth-featured: false
           files: |
@@ -50,7 +50,7 @@ jobs:
         with:
           curseforge-id: 324945
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          modrinth-id: wq3wqd0E
+          modrinth-id: xq3wqd0E
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           modrinth-featured: false
           files: |
