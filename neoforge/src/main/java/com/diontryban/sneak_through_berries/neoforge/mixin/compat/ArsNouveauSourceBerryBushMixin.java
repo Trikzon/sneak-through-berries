@@ -1,4 +1,4 @@
-package com.diontryban.sneak_through_berries.neoforge.mixin;
+package com.diontryban.sneak_through_berries.neoforge.mixin.compat;
 
 import com.hollingsworth.arsnouveau.common.block.SourceBerryBush;
 import net.minecraft.core.BlockPos;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SourceBerryBush.class)
-public class SourceBerryBushMixin {
+public class ArsNouveauSourceBerryBushMixin {
     @Inject(method = "entityInside", cancellable = true, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
     private void injectBeforeHurtInEntityInside(
         BlockState state,

@@ -49,20 +49,10 @@ dependencies {
     if (project.ash_version != "") {
         implementation "com.diontryban.ash_api:ash_api-neoforge:${project.ash_version}"
     }
-    
-    // Ars Nouveau - adds a lot of transitives, only needed one is JEI so it's added below
-    compileOnly("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}") {
-        transitive = false
-    }
 
-    runtimeOnly("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}") {
-        transitive = false
-    }
+    // Need to install Ars Nouveau and dependencies in 'runs/' to test in-dev.
+    compileOnly "com.hollingsworth.ars_nouveau:ars_nouveau-1.21.0:5.1.0.749"
 
-    // Ars dependencies
-    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
-    runtimeOnly "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
-    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }

@@ -5,7 +5,7 @@
     "compatibilityLevel": "JAVA_21",
     "plugin": "com.diontryban.sneak_through_berries.neoforge.NeoForgeMixinPlugin",
     "mixins": [
-        "SourceBerryBushMixin"
+        "compat.ArsNouveauSourceBerryBushMixin"
     ],
     "client": [ ],
     "server": [ ],
