@@ -10,7 +10,7 @@ neoForge {
 
     def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) {
-        accessTransformers.add(at.absolutePath)
+        accessTransformers.from(at.absolutePath)
     }
 
     parchment {
@@ -51,7 +51,7 @@ dependencies {
     }
 
     // Need to install Ars Nouveau and dependencies in 'runs/' to test in-dev.
-    compileOnly "com.hollingsworth.ars_nouveau:ars_nouveau-1.21.0:5.1.0.749"
+    compileOnly "com.hollingsworth.ars_nouveau:ars_nouveau-1.21.1:5.8.3.1108"
 
 }
 
