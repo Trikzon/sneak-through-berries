@@ -38,7 +38,7 @@ public abstract class SweetBerryBushBlockMixin extends BushBlock implements Bone
         super(properties);
     }
 
-    @Inject(method = "entityInside", cancellable = true, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
+    @Inject(method = "entityInside", cancellable = true, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;hurtServer(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
     private void injectBeforeHurtInEntityInside(
             BlockState state,
             Level level,

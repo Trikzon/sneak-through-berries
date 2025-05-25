@@ -50,8 +50,6 @@ dependencies {
         implementation "com.diontryban.ash_api:ash_api-neoforge:${project.ash_version}"
     }
 
-    // Need to install Ars Nouveau and dependencies in 'runs/' to test in-dev.
-    compileOnly "com.hollingsworth.ars_nouveau:ars_nouveau-1.21.1:5.8.3.1108"
 
 }
 
